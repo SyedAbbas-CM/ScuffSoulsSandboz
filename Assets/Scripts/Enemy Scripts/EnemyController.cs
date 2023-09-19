@@ -22,6 +22,8 @@ public class EnemyController : MonoBehaviour
     public float patrol_radius_min = 20f, patrol_radius_max = 60f;
     public float wait_before_attack = 2f;
     public float patrol_for_this_time = 15f;
+    public GameObject attack_point;
+
 
     private float current_chase_Distance;
     private float attack_timer;
@@ -160,4 +162,19 @@ public class EnemyController : MonoBehaviour
         NavMesh.SamplePosition(randDir, out navHit, rand_radius, -1);
         navAgent.SetDestination(navHit.position);
     }
+
+    void Turn_on_attackPoint()
+    {
+        attack_point.SetActive(true);
+    }
+    void Turn_off_attackPoint()
+    {
+        if (attack_point.activeInHierarchy)
+        {
+            attack_point.SetActive(false);
+
+        }
+        attack_point.SetActive(true);
+    }
+
 }
