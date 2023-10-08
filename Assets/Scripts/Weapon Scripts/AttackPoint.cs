@@ -15,7 +15,7 @@ public class AttackPoint : MonoBehaviour
         Collider[] hits = Physics.OverlapSphere(transform.position, radius,layermask);
         if (hits.Length > 0)
         {
-            print("We touched" + hits[0].gameObject.tag);
+            hits[0].gameObject.GetComponent<CharecterStats>().TakeDamage(damage);
             gameObject.SetActive(false);
         }
 

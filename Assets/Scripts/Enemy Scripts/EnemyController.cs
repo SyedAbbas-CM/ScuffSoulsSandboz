@@ -50,7 +50,7 @@ public class EnemyController : MonoBehaviour
     }
     void Update()
     {
-        if(enemy_state == Enemystate.PATROL)
+        if (enemy_state == Enemystate.PATROL)
         {
             patrol();
         }
@@ -70,7 +70,7 @@ public class EnemyController : MonoBehaviour
 
         patrol_timer += Time.deltaTime;
 
-        if(patrol_timer > patrol_for_this_time)
+        if (patrol_timer > patrol_for_this_time)
         {
             setRandomDestination();
             patrol_timer = 0f;
@@ -84,7 +84,7 @@ public class EnemyController : MonoBehaviour
             enemy_anim.Walk(false);
         }
 
-        if(Vector3.Distance(transform.position,target.position) <= chase_distance)
+        if (Vector3.Distance(transform.position, target.position) <= chase_distance)
         {
             enemy_anim.Walk(false);
             enemy_state = Enemystate.CHASE;
@@ -113,13 +113,13 @@ public class EnemyController : MonoBehaviour
             enemy_anim.Walk(false);
             enemy_state = Enemystate.ATTACK;
 
-            if(chase_distance != current_chase_Distance)
+            if (chase_distance != current_chase_Distance)
             {
                 chase_distance = current_chase_Distance;
             }
 
         }
-        else if(Vector3.Distance(transform.position, target.position) >= chase_distance)
+        else if (Vector3.Distance(transform.position, target.position) >= chase_distance)
         {
             enemy_anim.Run(false);
             enemy_state = Enemystate.PATROL;
@@ -139,13 +139,13 @@ public class EnemyController : MonoBehaviour
 
         attack_timer += Time.deltaTime;
 
-        if(attack_timer > wait_before_attack)
+        if (attack_timer > wait_before_attack)
         {
             enemy_anim.Attack();
             attack_timer = 0f;
 
         }
-        if (Vector3.Distance(transform.position, target.position) >= attack_Distance+chase_after_attack_distance)
+        if (Vector3.Distance(transform.position, target.position) >= attack_Distance + chase_after_attack_distance)
         {
             enemy_state = Enemystate.CHASE;
         }
@@ -177,4 +177,16 @@ public class EnemyController : MonoBehaviour
         attack_point.SetActive(true);
     }
 
+
+    public Enemystate Enemy_State
+    {
+        get
+        {
+            return enemy_state;
+        }
+        set { 
+            enemy_state = value; 
+        }
+    }
+    
 }

@@ -141,7 +141,11 @@ public class PlayerAttack : MonoBehaviour
         RaycastHit Hit;
         if (Physics.Raycast(mainCam.transform.position,mainCam.transform.forward,out Hit))
         {
-            print("WE Hit " + Hit.transform.gameObject.name);
+           if(Hit.transform.tag == Tags.ENEMY_TAG)
+            {
+                Hit.transform.GetComponent<CharecterStats>().TakeDamage(damage);
+                Debug.DrawRay(mainCam.transform.position, mainCam.transform.forward * 100, Color.red, 2);
+            }
         }
     }
 }

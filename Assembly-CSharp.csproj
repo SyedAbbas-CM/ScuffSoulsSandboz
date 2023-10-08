@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Player Scripts\PlayerAttack.cs" />
+    <Compile Include="Assets\Scripts\Player Scripts\MeleeWeaponSounds.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Weapon Scripts\ArrowScript.cs" />
     <Compile Include="Assets\Scripts\Weapon Scripts\MeleeWeapon.cs" />
@@ -64,16 +65,17 @@
     <Compile Include="Assets\Scripts\Player Scripts\SprintAndCrouch.cs" />
     <Compile Include="Assets\Scripts\StamniManager.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\FootSteps.cs" />
+    <Compile Include="Assets\Scripts\Stats.cs" />
     <Compile Include="Assets\Scripts\Weapon Scripts\Ammo.cs" />
     <Compile Include="Assets\Scripts\Helper Scripts\TagHolder.cs" />
     <Compile Include="Assets\Scripts\Weapon Scripts\WeaponBase.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\EnemyAnimator.cs" />
+    <Compile Include="Assets\Scripts\CharecterStats.cs" />
     <Compile Include="Assets\Scripts\Weapon Scripts\RangedWeapons.cs" />
     <Compile Include="Assets\Scripts\Weapon Scripts\AttackPoint.cs" />
     <Compile Include="Assets\Scripts\Weapon Scripts\WeaponManager.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\MouseLook.cs" />
-    <Compile Include="Assets\Scripts\Entity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\Standard\_Antialiasing\FXAAPreset2.shader" />
