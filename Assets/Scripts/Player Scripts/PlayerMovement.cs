@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     void movePlayer()
     {
         move_Direction = new Vector3(Input.GetAxis(Axis.HORIZONTAL), 0f, Input.GetAxis(Axis.VERTICAL));
+        if (Vector3.Magnitude(move_Direction)>1){move_Direction = Vector3.Normalize(move_Direction);} //<-mks
         move_Direction = transform.TransformDirection(move_Direction);
         move_Direction *= speed * Time.deltaTime;
         ApplyGravity();

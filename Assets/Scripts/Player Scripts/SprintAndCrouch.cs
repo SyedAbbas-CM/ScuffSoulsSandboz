@@ -42,6 +42,8 @@ public class SprintAndCrouch : MonoBehaviour
     {
         Sprint();
         Crouch();
+
+        lightspeed_code(); //mks
     }
 
     void Sprint()
@@ -90,6 +92,18 @@ public class SprintAndCrouch : MonoBehaviour
 
             }
         }
+    }
+
+    void lightspeed_code()                 //
+    {                                      //mks
+        if (Input.GetKeyDown(KeyCode.P))   //
+        {                                  //
+            playerMovement.speed+=5f;      //
+        }                                  //
+        if (Input.GetKeyDown(KeyCode.O))   //
+        {                                  //
+            playerMovement.speed=5f;       //
+        }                                  //
     }
 
 }
