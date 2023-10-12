@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public float jump_force = 10f;
     private float verticalVelocity;
 
+    private float jumped; //<-mks
+
     void Awake()
     {
         character_Controller = GetComponent<CharacterController>();
@@ -36,16 +38,20 @@ public class PlayerMovement : MonoBehaviour
     }
     void ApplyGravity()
     {
+        if (character_Controller.isGrounded) {verticalVelocity=-5f;} //<-mks
         verticalVelocity -= gravity * Time.deltaTime;
         //jump
+        jumped+=-Time.deltaTime;
         PlayerJump();
         move_Direction.y = verticalVelocity * Time.deltaTime;
     }
     void PlayerJump()
     {
-        if (character_Controller.isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)) {jumped=0.15f;} //<-mthrl (modified by mks)
+        if (character_Controller.isGrounded && jumped>0)
         {
             verticalVelocity = jump_force;
+            jumped=0;
         }
     }
 }

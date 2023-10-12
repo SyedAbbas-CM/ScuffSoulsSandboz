@@ -348,6 +348,7 @@
 "Assets/Scripts/Enemy Scripts/EnemyAnimator.cs"
 "Assets/Scripts/Enemy Scripts/EnemyController.cs"
 "Assets/Scripts/Entity.cs"
+"Assets/Scripts/Environment Scripts/Platform.cs"
 "Assets/Scripts/Helper Scripts/TagHolder.cs"
 "Assets/Scripts/Player Scripts/FootSteps.cs"
 "Assets/Scripts/Player Scripts/MouseLook.cs"
