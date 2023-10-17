@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,13 +30,14 @@ public class EnemyController : MonoBehaviour
     private float attack_timer;
     private Transform target;
     private float patrol_timer;
-
+    private EnemySounds sound;
 
     private void Awake()
     {
         enemy_anim = GetComponent<EnemyAnimator>();
         navAgent = GetComponent<NavMeshAgent>();
         target = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
+        sound = GetComponent<EnemySounds>();
     }
 
     void Start()
@@ -143,6 +145,7 @@ public class EnemyController : MonoBehaviour
         {
             enemy_anim.Attack();
             attack_timer = 0f;
+            sound.Play_attackSound();
 
         }
         if (Vector3.Distance(transform.position, target.position) >= attack_Distance + chase_after_attack_distance)

@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,6 +8,7 @@ public class CharecterStats : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth;
     public float stamina = 100f;
+    public float currentStamina = 100f;
     public float attackPower = 20f;
     public float defense = 10f;
     public bool is_player, is_boar, is_cannibal;
@@ -14,7 +17,8 @@ public class CharecterStats : MonoBehaviour
     private EnemyAnimator enemy_Anim;
     private EnemyController enemy_controller;
     private NavMeshAgent navAgent;
-
+    private EnemySounds enemyAudio;
+    private PlayerAttritbutes player;
 
     private void Awake()
     {
@@ -23,7 +27,12 @@ public class CharecterStats : MonoBehaviour
             enemy_Anim = GetComponent<EnemyAnimator>();
             enemy_controller = GetComponent<EnemyController>();
             navAgent = GetComponent<NavMeshAgent>();
-        } 
+            enemyAudio = GetComponent<EnemySounds>();   
+        }
+        if (is_player)
+        {
+            player = GetComponent<PlayerAttritbutes>();
+        }
     }
 
 
@@ -39,11 +48,12 @@ public class CharecterStats : MonoBehaviour
         float damageToTake = damage - defense;
         if (damageToTake < 0) damageToTake = 0;
 
+
         currentHealth -= damageToTake;
 
         if (is_player)
         {
-
+            player.Display_AttributeStats(currentHealth, currentStamina);
         }
         if (is_boar || is_cannibal)
         {
@@ -106,7 +116,7 @@ public class CharecterStats : MonoBehaviour
                 rb.AddTorque(-transform.forward * 50f);
             }
 
-
+            StartCoroutine(DeadSound());
 
             //courotine crap for sounds and crap yknow
 
@@ -117,6 +127,7 @@ public class CharecterStats : MonoBehaviour
             navAgent.isStopped = true;
             enemy_controller.enabled = false;
             enemy_Anim.dead();
+            StartCoroutine(DeadSound());
         }
 
 
@@ -124,4 +135,12 @@ public class CharecterStats : MonoBehaviour
         is_Dead = true;
         Debug.Log(gameObject.name + " has died.");
     }
+
+    IEnumerator DeadSound()
+    {
+        yield return new WaitForSeconds(0.3f);
+        enemyAudio.Play_deathSound();
+    }
+
+
 }

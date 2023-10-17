@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class MeleeWeaponSounds : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip[] sounds;
 
-    // Update is called once per frame
-    void Update()
+    void PlaySounds()
     {
-        
+        audioSource.clip = sounds[Random.Range(0, sounds.Length)];
+        audioSource.Play();
     }
 }
