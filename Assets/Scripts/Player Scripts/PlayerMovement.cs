@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void PlayerJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) {jumped=0.15f;} //<-mthrl (modified by mks)
+        if (Input.GetKeyDown(KeyCode.Space)) {jumped=0.15f;} //<-mthrl (modified by mks with jumped)
         if (character_Controller.isGrounded && jumped>0)
         {
             verticalVelocity = jump_force;

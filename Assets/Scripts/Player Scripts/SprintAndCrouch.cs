@@ -100,10 +100,5 @@ public class SprintAndCrouch : MonoBehaviour
         {                                  //
             playerMovement.speed+=5f;      //
         }                                  //
-        if (Input.GetKeyDown(KeyCode.O))   //
-        {                                  //
-            playerMovement.speed=5f;       //
-        }                                  //
     }                                      //
-
 }
